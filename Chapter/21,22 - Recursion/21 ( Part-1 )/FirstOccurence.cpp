@@ -13,7 +13,7 @@ int firstOccurence(vector<int> &arr, int i,int tar){
 }
 
 int main(){
-    vector<int> arr = {1,2,3,4,5};
+    vector<int> arr = {1,2,4,4,5};
 
     cout << firstOccurence(arr,0,4) << endl;
     return 0;
