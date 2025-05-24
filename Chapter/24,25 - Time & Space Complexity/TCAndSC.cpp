@@ -28,7 +28,20 @@ Ex: f(n) = 3n^2 + 2n + 1000
 
     O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n) --> Common Time Complexities
 
-                
+How to approach Qs:
+- First solve the question using brute force.
+- Then try to optimize the code. (Using time & space complexity)        
+
+* Assume : 10^8  operation in 1s
+so, use approach by analysing the given constraints .
+n > 10^8 --> O(1) , O(log n)
+n <= 10^8 --> O(n)
+n <= 10^6 --> O(n log n)
+n <= 10^5 --> O(n logn)
+n <= 10^4 --> O(n^2)
+n <= 500 --> O(n^3)
+n <= 25 --> O(2^n) --> minimum you can submit, you can also submit optimized code.
+
 */
 int main(){
     
