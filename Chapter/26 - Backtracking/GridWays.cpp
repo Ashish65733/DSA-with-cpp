@@ -15,9 +15,9 @@ int GridWays(int row, int col, int n, int m,string ans){    // O(2^(n+m)) --> Us
     }
 
     // Right 
-    int way1 = GridWays(row+1,col,n,m,ans+'R');
+    int way2 = GridWays(row,col+1,n,m,ans+'R');
     // Down 
-    int way2 = GridWays(row,col+1,n,m,ans+'D');
+    int way1 = GridWays(row+1,col,n,m,ans+'D');
 
     return way1+way2;
 }
