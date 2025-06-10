@@ -30,13 +30,13 @@ Node* buildTree(vector<int> nodes){
     return currNode;
 }
 
-void inorder(Node* root){  // O(n) --> no. of nodes in a tree
+void postorder(Node* root){  // O(n) --> no. of nodes in a tree
     if(root == NULL){
         return;
     }
 
-    inorder(root->left);
-    inorder(root->right);
+    postorder(root->left);
+    postorder(root->right);
     cout << root->data << " ";
 }
 
@@ -45,7 +45,7 @@ int main(){
 
     Node* root = buildTree(nodes);
 
-    inorder(root);
+    postorder(root);
 
     return 0;
 }
