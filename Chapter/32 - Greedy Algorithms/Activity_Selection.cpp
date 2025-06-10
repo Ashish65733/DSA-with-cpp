@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Que on leetcode - Maximum meeting in a room 
+// Similar Que on leetcode - Maximum meeting in a room 
 
 int maxActivities(vector<int> start, vector<int> end){
     // sort on end time
