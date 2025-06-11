@@ -40,8 +40,8 @@ pair<int,int> diameter(Node* root){   // O(n)
     pair<int,int> leftInfo = diameter(root->left);
     pair<int,int> rightInfo = diameter(root->right);
 
-    int currDiam = leftInfo.second + leftInfo.second + 1;
-    int finalDiam = max(currDiam,max(leftInfo.second,rightInfo.second));
+    int currDiam = leftInfo.second + rightInfo.second + 1;
+    int finalDiam = max(currDiam,max(leftInfo.first,rightInfo.first));
     int finalHt = max(leftInfo.second,rightInfo.second) + 1;
     
     return make_pair(finalDiam,finalHt);
