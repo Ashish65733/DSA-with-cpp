@@ -26,13 +26,13 @@ class HashTable{
     int currSize;
     Node** table;
 
-    int HashFunction(string key){
+    int hashFunction(string key){
         int idx = 0;
 
         for(int i=0; i<key.size(); i++){
             idx = idx + (key[i] * key[i]) % totSize;
         }
-        return idx;
+        return idx%totSize;
     }
 
     void rehash(){  // O(n)
@@ -74,7 +74,7 @@ public:
     }
 
     void insert(string key,int val){    // avg case : O(1), worst case : O(n) 
-        int idx = HashFunction(key);
+        int idx = hashFunction(key);
 
         Node* newNode = new Node(key,val);
 
@@ -90,7 +90,7 @@ public:
     }
 
     bool exist(string key){
-        int idx = HashFunction(key);
+        int idx = hashFunction(key);
 
         Node* temp = table[idx];
         while(temp != NULL){
@@ -103,7 +103,7 @@ public:
     }
 
     int search(string key){
-        int idx = HashFunction(key);
+        int idx = hashFunction(key);
 
         Node* temp = table[idx];
         while(temp != NULL){
@@ -116,7 +116,35 @@ public:
     }
 
     void erase(string key){
+        int idx = hashFunction(key);
 
+        Node *temp = table[idx];
+        Node* prev = temp;
+
+        while(temp != NULL){
+            if(temp->key == key){   // erase
+                if(prev == temp){   // head
+                    table[idx] = temp->next;
+                }else{
+                    prev->next = temp->next;
+                }
+                break;
+            }
+            prev = temp;
+            temp= temp->next;
+        }
+    }
+
+    void print(){
+        for(int i=0; i<totSize; i++){
+            cout << "Idx : " << i << " -> ";
+            Node* temp = table[i];
+            while(temp != NULL){
+                cout << "(" << temp->key << "," << temp->val << ") -> ";
+                temp = temp->next;
+            }
+            cout << "NULL" << endl;
+        }
     }
 };
 
@@ -129,8 +157,17 @@ int main(){
     ht.insert("Nepal",10);
     ht.insert("UK",20);
 
-    if(ht.exist("India")){
-        cout << "India population : " << ht.search("India") << endl;
-    }
+    // if(ht.exist("India")){
+    //     cout << "India population : " << ht.search("India") << endl;
+    // }
+
+    ht.erase("China");
+    ht.print();
+
+    cout << "------------------" << endl;
+
+    ht.erase("UK");
+    ht.print();
+
     return 0;
 }
