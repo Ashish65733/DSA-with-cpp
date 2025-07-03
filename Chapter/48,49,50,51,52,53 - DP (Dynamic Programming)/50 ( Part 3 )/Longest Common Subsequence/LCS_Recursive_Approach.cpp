@@ -5,7 +5,7 @@
 using namespace std;
 
 
-// Longest Common SubString
+// Longest Common Subsequence
 int lcsRec(string str1,string str2){    // O(2^(n+m))
     if(str1.size() == 0 || str2.size() == 0){
         return 0;

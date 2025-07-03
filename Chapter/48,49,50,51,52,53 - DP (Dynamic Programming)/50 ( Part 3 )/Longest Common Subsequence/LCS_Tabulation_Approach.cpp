@@ -5,7 +5,7 @@
 using namespace std;
 
 
-// Longest Common SubString
+// Longest Common Subsequence
 int lcsTab(string str1,string str2){    // O(n*m)
     int n = str1.size();
     int m = str2.size();
